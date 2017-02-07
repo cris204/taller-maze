@@ -40,6 +40,8 @@ http.createServer(function (request, response) {
    var queryData = url.parse(request.url, true).query;
 
    xSize=queryData.x;
+   ySize=queryData.y;
+
    Crear();
 
     response.writeHead(200, {"Content-Type":"text/plain"});
