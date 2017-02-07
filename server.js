@@ -20,12 +20,7 @@ var json=require("./prueba");
 
 
 
-  var mazeGenerator = mazeFactory.create({ x: xSize, y: ySize });
-  let spec = {
-      open: [
-          { border: "N", list: [0,2,xSize-1] }
-      ]
-  };
+
 
 
 
@@ -33,6 +28,12 @@ http.createServer(function (request, response) {
    var queryData = url.parse(request.url, true).query;
    xSyze=queryData.x;
   mazeGenerator.generate(spec);
+  var mazeGenerator = mazeFactory.create({ x: xSize, y: ySize });
+  let spec = {
+      open: [
+          { border: "N", list: [0,2,xSize-1] }
+      ]
+  };
     response.writeHead(200, {"Content-Type":"text/plain"});
     var row=[];
     var  border="";
