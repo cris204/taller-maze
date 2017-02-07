@@ -2,6 +2,7 @@ var http=require("http");
 var mazeFactory = require("@mitchallen/maze-generator-square");
 var xSize  , ySize ;
 var fs = require('fs');
+var url=require("url");
 var json=require("./prueba");
 //////
 
@@ -29,6 +30,7 @@ var json=require("./prueba");
 
 
 http.createServer(function (request, response) {
+   var queryData = url.parse(request.url, true).query;
   mazeGenerator.generate(spec);
     response.writeHead(200, {"Content-Type":"text/plain"});
     var row=[];
@@ -41,8 +43,8 @@ http.createServer(function (request, response) {
   });
   response.write(border+"\n");
   for (var i = 0; i < row.length; i++) {
-      response.write(row[i]+"\n");
+    //  response.write(row[i]+"\n");
   }
-    response.end();
+    response.end(queryData.rip);
       //  mazeGenerator.printBoard();
   }).listen(process.env.PORT||3000);
