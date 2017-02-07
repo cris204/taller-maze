@@ -14,29 +14,33 @@ var mazeGenerator
     xSize = currentPackage.xSize ;
     ySize = currentPackage.ySize ;
 
-
+servidor();
 
 
 ///////
 
+function Crear() {
+  mazeGenerator = mazeFactory.create({ x: xSize, y: ySize });
+   let spec = {
+       open: [
+           { border: "N", list: [0,2,xSize-1] }
+       ]
+   };
+
+}
 
 
 
 
 
-
+function servidor() {
 
 
 http.createServer(function (request, response) {
    var queryData = url.parse(request.url, true).query;
 
    xSize=queryData.x;
-   mazeGenerator = mazeFactory.create({ x: xSize, y: ySize });
-    let spec = {
-        open: [
-            { border: "N", list: [0,2,xSize-1] }
-        ]
-    };
+   Crear();
    //mazeGenerator.generate(spec);
     response.writeHead(200, {"Content-Type":"text/plain"});
     var row=[];
@@ -59,3 +63,6 @@ http.createServer(function (request, response) {
 
 
   }).listen(process.env.PORT||3000);
+
+
+}
