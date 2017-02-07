@@ -32,7 +32,7 @@ var json=require("./prueba");
 http.createServer(function (request, response) {
 
     var queryData= url.parse(request.url,true).query;
-    xSize=queryData;
+    xSize=queryData.x;
 
     mazeGenerator.generate(spec);
     response.writeHead(200, {"Content-Type":"text/plain"});
