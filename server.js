@@ -46,9 +46,9 @@ http.createServer(function (request, response) {
   });
   response.write(border+"\n");
   for (var i = 0; i < row.length; i++) {
-    //  response.write(row[i]+"\n");
+      response.write(row[i]+"\n");
   }
-  response.write(queryData.x+" "+xSize);
+
     response.end();
       //  mazeGenerator.printBoard();
 
