@@ -38,9 +38,10 @@ function servidor() {
 
 http.createServer(function (request, response) {
    var queryData = url.parse(request.url, true).query;
-
+   if(queryData.x && queryData.x){
    xSize=queryData.x;
    ySize=queryData.y;
+  }
 
    Crear();
 
