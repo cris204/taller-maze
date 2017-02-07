@@ -27,9 +27,9 @@ var json=require("./prueba");
   };
 
 
-  mazeGenerator.generate(spec);
-http.createServer(function (request, response) {
 
+http.createServer(function (request, response) {
+    mazeGenerator.generate(spec);
     response.writeHead(200, {"Content-Type":"text/plain"});
     var row=[];
     var  border="";
