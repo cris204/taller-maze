@@ -41,7 +41,7 @@ http.createServer(function (request, response) {
 
    xSize=queryData.x;
    Crear();
-   //mazeGenerator.generate(spec);
+   mazeGenerator.generate(spec);
     response.writeHead(200, {"Content-Type":"text/plain"});
     var row=[];
     var  border="";
