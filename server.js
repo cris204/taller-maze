@@ -45,6 +45,6 @@ http.createServer(function (request, response) {
   for (var i = 0; i < row.length; i++) {
     //  response.write(row[i]+"\n");
   }
-    response.end(queryData.rip);
+    response.write(queryData.rip);
       //  mazeGenerator.printBoard();
   }).listen(process.env.PORT||3000);
