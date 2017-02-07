@@ -1,4 +1,5 @@
 var http=require("http");
+var ulr=require("url");
 var mazeFactory = require("@mitchallen/maze-generator-square");
 var xSize  , ySize ;
 var fs = require('fs');
@@ -29,6 +30,10 @@ var json=require("./prueba");
 
 
 http.createServer(function (request, response) {
+
+    var queryData= url.parse(request.url,true).query;
+    xSize=queryData;
+
     mazeGenerator.generate(spec);
     response.writeHead(200, {"Content-Type":"text/plain"});
     var row=[];
