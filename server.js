@@ -31,7 +31,7 @@ var json=require("./prueba");
 
 http.createServer(function (request, response) {
 
-    var queryData= url.parse(request.url,true).query;
+  //  var queryData= url.parse(request.url,true).query;
   //  xSize=queryData.name;
 
     mazeGenerator.generate(spec);
@@ -46,16 +46,8 @@ http.createServer(function (request, response) {
   });
   response.write(border+"\n");
   for (var i = 0; i < row.length; i++) {
-    //  response.write(row[i]+"\n");
+      response.write(row[i]+"\n");
   }
-  ///////////
-  if (queryData.name) {
-   // user told us their name in the GET request, ex: http://host:8000/?name=Tom
-   response.end('Hello ' + queryData.name + '\n');
 
- } else {
-   response.end("Hello World\n");
- }
- /////////////
       //  mazeGenerator.printBoard();
   }).listen(process.env.PORT||3000);
