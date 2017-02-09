@@ -14,6 +14,7 @@ var mazeGenerator
     xSize = currentPackage.xSize ;
     ySize = currentPackage.ySize ;
 
+
 servidor();
 
 
